@@ -4,11 +4,10 @@
 
 ## 目录介绍
 
-    - src: 源代码 
+    - src: 源代码
       - base: 基础库
         - cpp:    C++相关的基础库
         - python: Python相关的基础库
-      - util: 工具库
-        - cpp:    C++相关的工具库
-        - python: Python相关的工具库
-        - shell:  Shell相关的工具库
+        - shell:  Shell相关的基础库
+      - machine_learning: 机器学习相关的代码库
+      - sparse_matrix_multiplication: 基于MapReduce开发的稀疏矩阵相乘的代码库
