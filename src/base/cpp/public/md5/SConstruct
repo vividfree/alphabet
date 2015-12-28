@@ -1,0 +1,22 @@
+env = Environment(tools=['default', 'packaging'])
+
+env.Append(CCFLAGS = Split('-g -O2 -Wall -Wextra'))
+#env.Append(CCFLAGS = Split('-g -Wall -Wextra'))
+
+import os
+
+path_srcs = ['.',
+            ];
+
+def FindSource():
+  objs = []
+  for path in path_srcs:
+    for file in os.listdir(path):
+      if file[-3:] != ".cc" and file[-4:] != ".cpp" and file[-2:] != ".c":
+        continue
+      file = '%s/%s' % (path, file)
+      objs.append(file)
+  print objs
+  return objs
+
+env.Library(target = './libmd5_digest', source = [FindSource()])

@@ -1,0 +1,16 @@
+env = Environment(tools=['default', 'packaging'])
+
+#env.Append(CCFLAGS = Split('-g -Wall -Wextra'))
+env.Append(CCFLAGS = Split('-g -O2 -Wall -Wextra'))
+
+root = '../'
+
+# set include path
+cpppath=['../',
+        ];
+env.Append(CPPPATH = cpppath)
+
+Export("env")
+
+env.StaticLibrary(target = 'streaming',
+                  source = ['check_log.cc', 'hadoop_streaming_mapreduce.cc'])
