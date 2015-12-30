@@ -1,6 +1,6 @@
 # alphabet
 
-欢迎来到 vividfree 的 alphabet代码仓库，这个仓库将放置 Machine Learning / Natural Language Processing / Big Data Computing 相关的代码，主要用 C++ / Python / Shell 语言开发。
+欢迎来到 vividfree 的 alphabet代码仓库，这个仓库将放置 Machine Learning / Natural Language Processing / Big Data Computing 相关的代码，主要用 C++ / Python / Shell 语言开发。个人技术博客请访问 [vividfree的博客](http://vividfree.github.io/) 。
 
 ## 仓库目录的整体介绍
 
