@@ -4,13 +4,13 @@
 
 ## 仓库目录的整体介绍
 
-    - src: 源代码
-      - base: 基础库
-        - cpp:    C++相关的基础库
-        - python: Python相关的基础库
-        - shell:  Shell相关的基础库
-      - machine_learning: 项目"机器学习"
-      - sparse_matrix_multiplication: 项目"基于MapReduce开发的稀疏矩阵相乘"
+    - src : 源代码
+      - base : 基础库
+        - cpp    :    C++相关的基础库
+        - python : Python相关的基础库
+        - shell  :  Shell相关的基础库
+      - machine_learning             : 项目"机器学习"
+      - sparse_matrix_multiplication : 项目"基于MapReduce开发的稀疏矩阵相乘"
 
 ## 项目目录的结构说明
 
