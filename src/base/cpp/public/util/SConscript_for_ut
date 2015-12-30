@@ -10,7 +10,6 @@ git_root = os.path.abspath( '../../../..' ) + "/"
 #set include path
 cpppath=[
          git_root,
-         git_root + 'base/cpp/public',
          git_root + 'base/cpp/thirdparty/gflags-2.0/include',
          git_root + 'base/cpp/thirdparty/glog-0.3.3/include',
          git_root + 'base/cpp/thirdparty/gtest-1.6.0/include',
