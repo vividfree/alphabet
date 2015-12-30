@@ -1,0 +1,70 @@
+import os
+
+env = Environment(tools=['default', 'packaging'])
+
+env.Append(CCFLAGS = Split('-g -Wall -Wextra -DDEBUG -Dprivate=public'))
+
+# set base path
+git_root = os.path.abspath( '../../..' ) + "/"
+
+#set include path
+cpppath=[
+         git_root,
+         git_root + 'base/cpp/thirdparty/gflags-2.0/include',
+         git_root + 'base/cpp/thirdparty/glog-0.3.3/include',
+         git_root + 'base/cpp/thirdparty/gtest-1.6.0/include',
+        ]
+env.Append(CPPPATH = cpppath)
+
+#set libpath
+libpath=[
+         git_root + 'base/cpp/thirdparty/gflags-2.0/lib/',
+         git_root + 'base/cpp/thirdparty/glog-0.3.3/lib',
+         git_root + 'base/cpp/thirdparty/gtest-1.6.0/lib/',
+        ]
+env.Append(LIBPATH = libpath)
+
+#set libs
+libs=[
+      'dl',
+      'gflags',
+      'glog',
+      'gtest',
+      'pthread',
+     ]
+env.Append(LIBS = libs)
+
+Export("env")
+
+all_path = [
+            '.',
+           ]
+
+other_src = [
+            ]
+
+def FindTestSource(paths):
+  objs = []
+  for path in paths:
+    for file in os.listdir(path):
+      if file[-3:] != ".cc" and file[-4:] != ".cpp":
+        continue
+      if file.startswith("test_"):
+        file = '%s/%s' % (os.path.abspath( path ), file)
+        objs.append(file)
+  return objs
+
+def FindSource(paths):
+  objs = []
+  for path in paths:
+    for file in os.listdir(path):
+      if file[-3:] != ".cc" and file[-4:] != ".cpp":
+        continue
+      if not file.startswith("test_"):
+        file = '%s/%s' % (os.path.abspath( path ), file)
+        objs.append(file)
+  return objs
+
+for bin_source in FindTestSource(all_path):
+    bin_name = bin_source.split('.')[0]
+    env.Program(target = bin_name, source = [bin_source] + FindSource(all_path) + other_src)
