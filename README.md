@@ -1,14 +1,14 @@
 # alphabet
 
-欢迎来到 vividfree 的 alphabet代码仓库，这个仓库将放置 Machine Learning / Natural Language Processing / Big Data Computing 相关的代码，主要用 C++ / Python / Shell 语言开发。个人技术博客请访问 [vividfree的博客](http://vividfree.github.io/) 。
+欢迎来到 vividfree 的 alphabet 代码仓库，这个仓库将放置 Machine Learning / Natural Language Processing / Big Data Computing 相关的代码，主要用 C++ / Python / Shell 语言开发。个人技术博客请访问 [vividfree的博客](http://vividfree.github.io/) 。
 
 ## 仓库目录的整体介绍
 
     - src : 源代码
       - base : 基础库
-        - cpp    :    C++相关的基础库
-        - python : Python相关的基础库
-        - shell  :  Shell相关的基础库
+        - cpp    : C++    相关的基础库
+        - python : Python 相关的基础库
+        - shell  : Shell  相关的基础库
       - machine_learning             : 项目"机器学习"
       - sparse_matrix_multiplication : 项目"基于MapReduce开发的稀疏矩阵相乘"
 
