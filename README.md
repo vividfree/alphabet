@@ -9,6 +9,8 @@
         - cpp    : C++    相关的基础库
         - python : Python 相关的基础库
         - shell  : Shell  相关的基础库
+      - crawl_and_analyse_website    : 项目"爬取和解析某些网站"
+        - analyse_lianjia  : 子项目"爬取和解析链家的某些网页"
       - machine_learning             : 项目"机器学习"
       - sparse_matrix_multiplication : 项目"基于MapReduce开发的稀疏矩阵相乘"
 
