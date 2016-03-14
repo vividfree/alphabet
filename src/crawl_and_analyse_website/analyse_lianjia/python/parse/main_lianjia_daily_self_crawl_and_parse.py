@@ -4,7 +4,7 @@
 # Author: vividfree (vividfree@qq.com)
 #  Date : 2016-03-13
 
-from util import file_system, project_dir_manager
+from util import project_dir_manager
 
 import ConfigParser
 import os
