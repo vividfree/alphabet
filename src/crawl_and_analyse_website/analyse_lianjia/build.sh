@@ -1,8 +1,6 @@
 #!/bin/bash
 rm target -rf
 
-cd src && ./build_src.sh && cd ../
-
 if [ $? -eq 0 ]; then
 	mkdir -p target
 
