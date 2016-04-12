@@ -21,7 +21,8 @@ const int LRModel::kNegativeLabelID = 0;
 const float LRModel::kPositiveThreshold = 0.5;
 
 LRModel::LRModel(const data_dict::ArrayParamValueDict& data_reader):
-    SupervisedModel(data_reader) {
+    SupervisedModel(),
+    data_reader_(&data_reader) {
 }
 
 LRModel::~LRModel() {

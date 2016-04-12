@@ -9,6 +9,11 @@
 #include "machine_learning/src/model/supervised_model.h"
 
 namespace machine_learning {
+
+namespace data_dict {
+class ArrayParamValueDict;
+}  // namespace data_dict
+
 namespace supervised_model {
 
 class LRModel : public SupervisedModel {
@@ -46,6 +51,7 @@ class LRModel : public SupervisedModel {
   bool Destroy();
 
  private:
+  const data_dict::ArrayParamValueDict* data_reader_;
 };
 
 }  // namespace supervised_model

@@ -8,10 +8,6 @@
 
 namespace machine_learning {
 
-namespace data_dict {
-class ArrayParamValueDict;
-}  // namespace data_dict
-
 namespace util {
 struct SampleWithLabel;
 }  // namespace util
@@ -20,9 +16,7 @@ namespace supervised_model {
 
 class SupervisedModel {
  public:
-  explicit SupervisedModel(const data_dict::ArrayParamValueDict& data_reader):
-      initialized_(false),
-      data_reader_(&data_reader) {}
+  SupervisedModel(): initialized_(false) {}
 
   virtual ~SupervisedModel() {}
 
@@ -53,7 +47,6 @@ class SupervisedModel {
 
  protected:
   bool initialized_;
-  const data_dict::ArrayParamValueDict* data_reader_;
 };
 
 }  // namespace supervised_model
