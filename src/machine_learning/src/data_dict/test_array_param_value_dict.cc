@@ -178,9 +178,40 @@ TEST_F(ArrayParamValueDictTest, AddValueForSingleParamTest) {
 
 TEST_F(ArrayParamValueDictTest, GetParamArraySizeTest) {
   cerr << "\nIn ArrayParamValueDictTest::GetParamArraySizeTest()\n\n";
-  int array_size = dict_->GetParamArraySize();
+
+  int array_size = 0;
+  bool b_success = dict_->GetParamArraySize(&array_size);
+  EXPECT_TRUE(b_success);
+  EXPECT_EQ(5, array_size);
+
+  dict_->Destroy();
+  b_success = dict_->GetParamArraySize(&array_size);
+  EXPECT_FALSE(b_success);
+
+  dict_->Init();
+  b_success = dict_->GetParamArraySize(&array_size);
+  EXPECT_TRUE(b_success);
   EXPECT_EQ(5, array_size);
 }
+
+TEST_F(ArrayParamValueDictTest, DumpModelTest) {
+  cerr << "\nIn ArrayParamValueDictTest::DumpModelTest()\n\n";
+
+  dict_->Destroy();
+
+  string output_model_filename = "";
+  bool b_success = dict_->DumpModel(output_model_filename);
+  EXPECT_FALSE(b_success);
+
+  dict_->Init();
+  b_success = dict_->DumpModel(output_model_filename);
+  EXPECT_FALSE(b_success);
+
+  output_model_filename = "test_data/data/test_output_model_file";
+  b_success = dict_->DumpModel(output_model_filename);
+  EXPECT_TRUE(b_success);
+}
+
 
 int main(int argc, char* argv[]) {
   google::ParseCommandLineFlags(&argc, &argv, true);

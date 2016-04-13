@@ -1,8 +1,9 @@
 // Author: vividfree (vividfree@qq.com)
 //  Date : 2015-12-30
-// 数据格式: 第1行表明有多少行，从第2行开始的格式如下
+// 数据格式: 第1行表明有多少特征，从第2行开始的格式如下
 //           parameter_id \001 parameter_name \001 value
 //           允许以"#"开头注释某行
+//           parameter_id的取值需要小于第1行描述的特征数
 
 #ifndef MACHINE_LEARNING_SRC_DATA_DICT_ARRAY_PARAM_VALUE_DICT_H_
 #define MACHINE_LEARNING_SRC_DATA_DICT_ARRAY_PARAM_VALUE_DICT_H_
@@ -14,7 +15,7 @@ namespace data_dict {
 
 class ArrayParamValueDict {
  public:
-  explicit ArrayParamValueDict(const std::string& file_name);
+  explicit ArrayParamValueDict(const std::string& model_filename);
   virtual ~ArrayParamValueDict();
 
   bool Init();
@@ -23,7 +24,9 @@ class ArrayParamValueDict {
   bool SetValueForSingleParam(int index, float value);
   bool AddValueForSingleParam(int index, float value);
 
-  int GetParamArraySize() const;
+  bool GetParamArraySize(int* array_size) const;
+
+  bool DumpModel(const std::string& output_model_filename) const;
 
   bool Destroy();
 
@@ -31,7 +34,7 @@ class ArrayParamValueDict {
   bool LoadData();
 
   bool initialized_;
-  std::string file_name_;
+  std::string model_filename_;
   int array_size_;
   float* param_value_array_;
 };
