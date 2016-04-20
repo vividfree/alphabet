@@ -33,7 +33,8 @@ class LRModel : public SupervisedModel {
                              float* model_score) const;
 
   // 计算loss
-  // NOTE: 会用到sample.weight_ 和 sample.label_id_
+  // NOTE 1: loss_score是取log后的损失值 (这句话暂时没出现在 SupervisedModel 中)
+  // NOTE 2: 会用到sample.weight_ 和 sample.label_id_
   virtual bool LossFunction(const util::SampleWithLabel& sample,
                             float* loss_score) const;
 
