@@ -3,7 +3,10 @@ from setuptools import find_packages
 
 
 setup(
+    author="vividfree",
+    author_email="vividfree@qq.com",
+    description="base python code",
     name="base_python",
-    version="1.0",
     packages=find_packages(),
+    version="0.1",
 )
