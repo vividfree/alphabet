@@ -5,7 +5,7 @@
 
 import unittest
 
-from util import key_value_file_reader
+from file_util import key_value_file_reader
 from util import log_util
 
 

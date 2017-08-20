@@ -5,7 +5,7 @@
 
 import unittest
 
-from util import sequential_encoder
+from file_util import sequential_encoder
 from util import log_util
 
 
