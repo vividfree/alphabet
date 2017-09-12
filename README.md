@@ -17,6 +17,7 @@
         - analyse_lianjia  : 子项目"爬取和解析链家的某些网页"
       - machine_learning             : 项目"机器学习"
       - sparse_matrix_multiplication : 项目"基于MapReduce开发的稀疏矩阵相乘"
+      - tool : 工具库
 
 ## 项目目录的结构说明
 
