@@ -13,7 +13,8 @@
           - text_util : 文本处理相关的基础接口
           - util      : 其他基础接口
         - shell  : Shell  相关的基础库
-      - cgi_demo  : 项目"CGI服务的demo" （虽然是demo，但工程框架做得比较好，适合在该基础上开发真实的CGI服务）
+      - cgi_demo  : 项目"CGI服务的demo" 
+        - 虽然是demo，但系统架构和代码两方面做得比较好，适合在该基础上开发真实的CGI服务。详情请见cgi_demo/README.md
       - crawl_and_analyse_website    : 项目"爬取和解析某些网站"
         - analyse_lianjia  : 子项目"爬取和解析链家的某些网页"
       - machine_learning             : 项目"机器学习"
