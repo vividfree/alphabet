@@ -1,0 +1,77 @@
+import os
+
+env = Environment(tools=['default', 'packaging'])
+
+env.Append(CCFLAGS = Split('-g -O2 -Wall -Wextra -DNDEBUG'))
+
+# set base path
+git_root = os.path.abspath('../..') + "/"
+project_root = os.path.abspath('..') + "/"
+
+# set include path
+cpppath=[
+         git_root,
+         git_root + 'base/cpp/thirdparty/boost_1.52.0/include',
+         git_root + 'base/cpp/thirdparty/fcgi-2.4.1/include',
+         git_root + 'base/cpp/thirdparty/gflags-2.0/include',
+         git_root + 'base/cpp/thirdparty/glog-0.3.3/include',
+         git_root + 'base/cpp/thirdparty/jsoncpp-0.5.0/include',
+]
+print 'cpppath:', cpppath
+env.Append(CPPPATH = cpppath)
+
+# set libpath
+libpath=[
+         git_root + 'base/cpp/thirdparty/boost_1.52.0/lib',
+         git_root + 'base/cpp/thirdparty/fcgi-2.4.1/lib',
+         git_root + 'base/cpp/thirdparty/gflags-2.0/lib',
+         git_root + 'base/cpp/thirdparty/glog-0.3.3/lib',
+         git_root + 'base/cpp/thirdparty/jsoncpp-0.5.0/lib',
+]
+env.Append(LIBPATH = libpath)
+
+# set libs
+libs=[
+      'fcgi',
+      'fcgi++',
+      'gflags',
+      'glog',
+      'jsoncpp',
+      'pthread',
+]
+env.Append(LIBS = libs)
+
+Export("env")
+
+bin_file_path = [
+                 'main',
+];
+
+dep_file_path = [
+                 'def_struct',
+                 'engine',
+                 'request',
+                 'response',
+                 'util',
+]
+
+other_src = [
+]
+
+def FindSource(paths):
+  objs = []
+  for path in paths:
+    for file in os.listdir(path):
+      if not file.endswith(".cc") and not file.endswith(".cpp"):
+        continue
+      if file.endswith("_test.cc") or file.endswith("_test.cpp"):
+        continue
+      file = os.path.join(path, file)
+      objs.append(file)
+  return objs
+
+for bin_source in FindSource(bin_file_path):
+    bin_name = os.path.basename(bin_source.split('.')[0])
+    env.Program(target=bin_name,
+                source=[bin_source] + FindSource(dep_file_path) + other_src)
+
